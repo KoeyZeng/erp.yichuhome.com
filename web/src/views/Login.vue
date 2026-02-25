@@ -94,7 +94,7 @@ export default {
         if (result.state == "success") {
           this.form.code = "";
           this.form.uuid = result.info.uuid;
-          this.$refs.captcha.src = result.info.data;
+          // this.$refs.captcha.src = result.info.data;
         } else if (result.state == "error") {
           this.$message({
             type: "warning",

@@ -89,7 +89,16 @@ class Request extends PsrRequest
             if ($this->body instanceof StreamInterface) {
                 $request = $request->withBody($this->body);
             } else {
-                $request = $request->withBody(\GuzzleHttp\Psr7\stream_for($this->body));
+                $body = $this->body;
+                if (Helper::isBytes($this->body)) {
+                    $body = Helper::toString($this->body);
+                }
+                if (\function_exists('\GuzzleHttp\Psr7\stream_for')) {
+                    // @deprecated stream_for will be removed in guzzlehttp/psr7:2.0
+                    $request = $request->withBody(\GuzzleHttp\Psr7\stream_for($body));
+                } else {
+                    $request = $request->withBody(\GuzzleHttp\Psr7\Utils::streamFor($body));
+                }
             }
         }
 
@@ -107,7 +116,7 @@ class Request extends PsrRequest
      */
     private function assertQuery($query)
     {
-        if (!\is_array($query)) {
+        if (!\is_array($query) && $query !== null) {
             throw new InvalidArgumentException('Query must be array.');
         }
     }

@@ -203,14 +203,6 @@
 						</div>
 					</div>
 				</el-card>
-				<el-card class="wechat">
-					<div slot="header">
-						<span>客服支持</span>
-					</div>
-					<span>打开微信扫码或搜索点可云，享受7*12线上服务支持。</span>
-					<img src="/static/images/lib/wechat.png">
-					<el-link type="primary" :underline="false" :href="store.base.cdnSite+'/lib/package/desktop.zip'">下载桌面版框架程序</el-link>
-				</el-card>
 				<el-card class="run">
 					<div slot="header">
 						<span>运行环境</span>

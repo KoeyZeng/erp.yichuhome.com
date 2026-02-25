@@ -34,7 +34,51 @@ class Helper
     {
         json_decode($str);
 
-        return JSON_ERROR_NONE == json_last_error();
+        return \JSON_ERROR_NONE == json_last_error();
+    }
+
+    /**
+     * @param mixed $value
+     *
+     * @return bool
+     */
+    public static function isBytes($value)
+    {
+        if (!\is_array($value)) {
+            return false;
+        }
+        $i = 0;
+        foreach ($value as $k => $ord) {
+            if ($k !== $i) {
+                return false;
+            }
+            if (!\is_int($ord)) {
+                return false;
+            }
+            if ($ord < 0 || $ord > 255) {
+                return false;
+            }
+            ++$i;
+        }
+
+        return true;
+    }
+
+    /**
+     * Convert a bytes to string(utf8).
+     *
+     * @param array $bytes
+     *
+     * @return string the return string
+     */
+    public static function toString($bytes)
+    {
+        $str = '';
+        foreach ($bytes as $ch) {
+            $str .= \chr($ch);
+        }
+
+        return $str;
     }
 
     /**

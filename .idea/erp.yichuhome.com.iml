@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/serve/app" isTestSource="false" packagePrefix="app\" />
+      <sourceFolder url="file://$MODULE_DIR$/serve/extend" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/adbario/php-dot-notation" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/alibabacloud/tea" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/alibabacloud/tea-fileform" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/alipaysdk/easysdk" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/bacon/bacon-qr-code" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/barcode-bakery/barcode-1d" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/barcode-bakery/barcode-common" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/dasprid/enum" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/endroid/qr-code" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/ezyang/htmlpurifier" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/khanamiryan/qrcode-detector-decoder" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/maennchen/zipstream-php" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/markbaker/complex" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/markbaker/matrix" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/myclabs/php-enum" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/packages/barcode-1d" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/packages/barcode-common" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/phpoffice/phpspreadsheet" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/psr/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/psr/http-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/psr/simple-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/symfony/options-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/symfony/polyfill-intl-grapheme" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/symfony/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/symfony/polyfill-php73" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/symfony/polyfill-php80" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/symfony/property-access" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/symfony/property-info" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/symfony/string" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/symfony/var-dumper" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/topthink/framework" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/topthink/think-helper" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/topthink/think-orm" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/topthink/think-template" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/topthink/think-trace" />
+      <excludeFolder url="file://$MODULE_DIR$/serve/vendor/topthink/think-view" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

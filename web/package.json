@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build && node ./build/copyTempStatic"
   },
   "dependencies": {
     "ag-grid-community": "^25.0.1",
@@ -16,6 +16,7 @@
     "element-ui": "^2.15.0",
     "mathjs": "^9.2.0",
     "moment": "^2.29.1",
+    "shelljs": "^0.10.0",
     "vue": "^2.6.12",
     "vue-bus": "^1.2.1",
     "vue-router": "^3.5.1",
