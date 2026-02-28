@@ -33,7 +33,6 @@ class User extends Acl{
     public function save(){
         $input=input('post.');
         if(isset($input['id'])){
-            
             //构造|验证
             try {
                 $input['py']=zhToPy($input['name']);//首拼信息
@@ -52,12 +51,12 @@ class User extends Acl{
                 return json(['state'=>'error','info'=>$e->getError()]);
                 exit;
             }
-            
             //处理数据
             Db::startTrans();
             try {
                 if(empty($input['id'])){
                     //创建数据
+                    if(empty($input['expire'])) $input['expire'] = 0;
                     Users::create($input);
                     pushLog('新增用户[ '.$input['name'].' ]');//日志
                 }else{
