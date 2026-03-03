@@ -98,16 +98,16 @@ const Warehouse = () =>
 const Account = () =>
   import(/* webpackChunkName: 'n'*/ "@/views/system/base/Account");
 const Goods = () =>
-  import(/* webpackChunkName: 'n'*/ "@/views/system/base/Goods");
+  import(/* webpackChunkName: 'n'*/ "@/views/commodity/Goods");
 //辅助资料
 const Category = () =>
-  import(/* webpackChunkName: 'o'*/ "@/views/system/assist/Category");
+  import(/* webpackChunkName: 'o'*/ "@/views/commodity/Category");
 const Iet = () =>
   import(/* webpackChunkName: 'o'*/ "@/views/system/assist/Iet");
 const Attribute = () =>
-  import(/* webpackChunkName: 'o'*/ "@/views/system/assist/Attribute");
+  import(/* webpackChunkName: 'o'*/ "@/views/commodity/Attribute");
 const Code = () =>
-  import(/* webpackChunkName: 'o'*/ "@/views/system/assist/Code");
+  import(/* webpackChunkName: 'o'*/ "@/views/commodity/Code");
 const Often = () =>
   import(/* webpackChunkName: 'o'*/ "@/views/system/assist/Often");
 //高级设置
@@ -277,6 +277,44 @@ const example = new Router({
           },
         },
       ],
+    },
+    {
+      path: "/commodity",
+      component: Home,
+      children: [
+        {
+          path: "goods",
+          name: "goods",
+          component: Goods,
+          meta: {
+            title: "商品管理",
+          },
+        },
+        {
+          path: "category",
+          name: "category",
+          component: Category,
+          meta: {
+            title: "商品类别",
+          },
+        },
+        {
+          path: "attribute",
+          name: "attribute",
+          component: Attribute,
+          meta: {
+            title: "辅助属性",
+          },
+        },
+        {
+          path: "code",
+          name: "code",
+          component: Code,
+          meta: {
+            title: "条码管理",
+          },
+        },
+      ]
     },
     {
       path: "/room",
@@ -717,43 +755,11 @@ const example = new Router({
           },
         },
         {
-          path: "goods",
-          name: "goods",
-          component: Goods,
-          meta: {
-            title: "商品管理",
-          },
-        },
-        {
-          path: "category",
-          name: "category",
-          component: Category,
-          meta: {
-            title: "商品类别",
-          },
-        },
-        {
           path: "iet",
           name: "iet",
           component: Iet,
           meta: {
             title: "收支类别",
-          },
-        },
-        {
-          path: "attribute",
-          name: "attribute",
-          component: Attribute,
-          meta: {
-            title: "辅助属性",
-          },
-        },
-        {
-          path: "code",
-          name: "code",
-          component: Code,
-          meta: {
-            title: "条码管理",
           },
         },
         {

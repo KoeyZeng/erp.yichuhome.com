@@ -33,6 +33,7 @@ class Attribute extends Validate {
             $result = '属性内容不可包含[ | ]保留字符!';
         }else{
             //全局重复判断
+            if (empty($data['id'])) return true;
             $find=db('attribute_info')->where([['pid','<>',$data['id']],['name','in',$column]])->find();
         	if(empty($find)){
         	    $result=true;

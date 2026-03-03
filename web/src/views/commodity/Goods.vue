@@ -10,7 +10,7 @@
 						<el-input placeholder="请输入商品编号" v-model="searchFrom.number" clearable></el-input>
 					</el-form-item>
 					<el-form-item>
-						<el-input placeholder="请输入商品型号" v-model="searchFrom.spec" clearable></el-input>
+						<el-input placeholder="请输入规格型号" v-model="searchFrom.spec" clearable></el-input>
 					</el-form-item>
 					<el-form-item>
 						<nodTree v-model="searchFrom.category" :treeData="store.category" placeholder="请选择商品类别"></nodTree>
@@ -57,15 +57,15 @@
 		<el-divider></el-divider>
 		<el-table :data="tableData" height="calc(100% - 90px)" @selection-change="selectionChange" border v-madeTable>
 			<el-table-column type="selection" align="center" width="39px" fixed="left"></el-table-column>
+      <el-table-column prop="categoryData.name" label="商品类别" align="center" width="120px"></el-table-column>
 			<el-table-column prop="name" label="商品名称" align="center" width="220px"></el-table-column>
-			<el-table-column prop="number" label="商品编号" align="center" width="160px"></el-table-column>
-			<el-table-column prop="spec" label="规格型号" align="center" width="160px"></el-table-column>
-			<el-table-column prop="categoryData.name" label="商品分类" align="center" width="120px"></el-table-column>
-			<el-table-column prop="brand" label="商品品牌" align="center" width="120px"></el-table-column>
-			<el-table-column prop="extension.unit" label="商品单位" align="center" width="120px"></el-table-column>
-			<el-table-column prop="code" label="商品条码" align="center" width="160px"></el-table-column>
+			<el-table-column prop="number" label="商品编号" align="center" width="120px"></el-table-column>
+			<el-table-column prop="spec" label="规格型号" align="center" width="140px"></el-table-column>
+			<el-table-column prop="brand" label="商品品牌" align="center" width="140px"></el-table-column>
+      <el-table-column prop="buy" label="采购价￥" align="center" width="80px"></el-table-column>
+      <el-table-column prop="sell" label="销售价$" align="center" width="80px"></el-table-column>
 			<el-table-column prop="extension.type" label="商品类型" align="center" width="120px"></el-table-column>
-			<el-table-column prop="data" label="备注信息 " align="center" min-width="200px"></el-table-column>
+<!--			<el-table-column prop="data" label="备注信息 " align="center" min-width="200px"></el-table-column>-->
 			<el-table-column prop="set" label="相关操作" align="center" width="180px" fixed="right">
 				<template slot-scope="scope">
 					<el-button-group>
@@ -86,21 +86,22 @@
 					<el-form :model="form" :rules="rules" ref="form" label-width="80px"  :inline="true">
 						<el-tabs v-model="dialog.active">
 							<el-tab-pane label="基础信息" name="base">
+                <el-form-item label="商品类别" prop="category">
+                  <template slot="label">
+                    <span @click="switchPage('category')">商品类别</span>
+                  </template>
+                  <nodTree v-model="form.category" :treeData="store.category" placeholder="请选择商品类别"></nodTree>
+                </el-form-item>
 								<el-form-item label="商品名称" prop="name">
 									<el-input placeholder="请输入商品名称" v-model="form.name" clearable></el-input>
 								</el-form-item>
 								<el-form-item label="商品编号" prop="number">
 									<el-input placeholder="请输入商品编号" v-model="form.number" clearable></el-input>
 								</el-form-item>
-								<el-form-item label="商品型号">
-									<el-input placeholder="请输入商品型号" v-model="form.spec" clearable></el-input>
+								<el-form-item label="规格型号">
+									<el-input placeholder="请输入规格型号" v-model="form.spec" clearable></el-input>
 								</el-form-item>
-								<el-form-item label="商品类别" prop="category">
-									<template slot="label">
-									    <span @click="switchPage('category')">商品类别</span>
-									</template>
-									<nodTree v-model="form.category" :treeData="store.category" placeholder="请选择商品类别"></nodTree>
-								</el-form-item>
+
 								<el-form-item label="商品品牌">
 									<template slot="label">
 									    <span @click="switchPage('sys')">商品品牌</span>
@@ -122,11 +123,11 @@
 										<el-option label="多单位" value="-1"></el-option>
 									 </el-select>
 								</el-form-item>
-								<el-form-item label="采购价格" prop="buy">
-									<el-input placeholder="请输入采购价格" v-model="form.buy" clearable></el-input>
+								<el-form-item label="采购价￥" prop="buy">
+									<el-input placeholder="请输入采购价(人民币元)" v-model="form.buy" clearable></el-input>
 								</el-form-item>
-								<el-form-item label="销售价格" prop="sell">
-									<el-input placeholder="请输入销售价格" v-model="form.sell" clearable></el-input>
+								<el-form-item label="销售价$" prop="sell">
+									<el-input placeholder="请输入销售价(美元)" v-model="form.sell" clearable></el-input>
 								</el-form-item>
 								<el-form-item label="商品条码">
 									<template slot="label">
@@ -134,10 +135,30 @@
 									</template>
 									<el-input placeholder="请输入商品条码" v-model="form.code" clearable></el-input>
 								</el-form-item>
-								<el-form-item label="商品货位">
+                <el-form-item label="长度" prop="length">
+                  <el-input placeholder="请输入长度" v-model="form.length" clearable>
+                    <template slot="append">CM</template>
+                  </el-input>
+                </el-form-item>
+                <el-form-item label="宽度" prop="width">
+                  <el-input placeholder="请输入长度" v-model="form.width" clearable>
+                    <template slot="append">CM</template>
+                  </el-input>
+                </el-form-item>
+                <el-form-item label="高度" prop="height">
+                  <el-input placeholder="请输入长度" v-model="form.height" clearable>
+                    <template slot="append">CM</template>
+                  </el-input>
+                </el-form-item>
+                <el-form-item label="重量" prop="weight">
+                  <el-input placeholder="请输入重量" v-model="form.weight" clearable>
+                    <template slot="append">KG</template>
+                  </el-input>
+                </el-form-item>
+								<el-form-item label="商品货位" v-if="false">
 									<el-input placeholder="请输入商品货位" v-model="form.location" clearable></el-input>
 								</el-form-item>
-								<el-form-item label="库存阈值" prop="stock">
+								<el-form-item label="库存阈值" prop="stock" v-if="false">
 									<el-input placeholder="请输入库存阈值" v-model="form.stock" clearable></el-input>
 								</el-form-item>
 								<el-form-item label="商品类型">
@@ -147,7 +168,12 @@
 									</el-select>
 								</el-form-item>
 								<el-form-item label="备注信息">
-									<el-input placeholder="请输入备注信息" v-model="form.data" clearable></el-input>
+									<el-input placeholder="请输入备注信息" v-model="form.data" clearable
+                            type="textarea"
+                            maxlength="500"
+                            :autosize="{ minRows: 2, maxRows: 4}"
+                            show-word-limit
+                  ></el-input>
 								</el-form-item>
 							</el-tab-pane>
 							<el-tab-pane label="辅助属性" name="attr">
@@ -181,10 +207,10 @@
 									</el-table-column>
 									<el-table-column align="center" width="120px">
 										<template slot="header" slot-scope="scope">
-											<span>条形码 <i class="el-icon-sort" @click="attrFill('code')"></i></span>
+											<span>备注 <i class="el-icon-sort" @click="attrFill('code')"></i></span>
 										</template>
 										<template slot-scope="scope">
-											<input type="text" v-model="scope.row.code" placeholder="条形码"></input>
+											<input type="text" v-model="scope.row.code" placeholder="备注"></input>
 										</template>
 									</el-table-column>
 								</el-table>
@@ -414,7 +440,7 @@
 					spec:"",
 					category:null,
 					brand:"",
-					unit:"",
+					unit:"件",
 					buy:"",
 					sell:"",
 					code:"",
@@ -432,7 +458,11 @@
 					protect:0,
 					threshold:0,
 					more: {},
-					attr:[]
+					attr:[],
+          length: 0,
+          width: 0,
+          height: 0,
+          weight: 0
 				},
 				rules: {
 					name: {

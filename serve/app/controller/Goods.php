@@ -229,7 +229,7 @@ class Goods extends Acl {
 						'location'=>$dataVo['L'],
 						'stock'=>$dataVo['M'],
 						'type'=>$dataVo['N']=='常规商品'?0:1,
-						'data'=>$dataVo['O'],
+						'data'=>$dataVo['O'] ?? '',
 						'alias'=>'',
 						'imgs'=>[],
 						'details'=>'',
