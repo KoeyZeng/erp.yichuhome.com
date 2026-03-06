@@ -20,7 +20,6 @@
         "topthink/framework": "^6.0.0",
         "topthink/think-orm": "^2.0",
         "ezyang/htmlpurifier": "^4.11",
-
         "phpoffice/phpspreadsheet": "^1.9",
         "endroid/qr-code": "^3.7",
         "barcode-bakery/barcode-common": "*",
