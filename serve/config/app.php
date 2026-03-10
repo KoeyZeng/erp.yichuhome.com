@@ -18,6 +18,8 @@ return [
     'default_app'      => 'index',
     // 默认时区
     'default_timezone' => 'Asia/Shanghai',
+    // 开启调试
+    'app_debug' => env('APP_DEBUG', false),
 
     // 应用映射（自动多应用模式有效）
     'app_map'          => [],
