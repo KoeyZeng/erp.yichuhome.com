@@ -954,6 +954,7 @@ function getRootMemu() {
         $menu= db('menu')->order('sort asc')->select()->toArray();
     } else {
         $menu = db('menu')->where([['root','<>','admin'],['id','>',0]])->order('sort asc')->select()->toArray();
+
         //1.做数据标识
         foreach ($menu as $menuKey=>$menuVo) {
             $voRoot=explode('|',$menuVo['root']);

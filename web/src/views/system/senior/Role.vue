@@ -371,7 +371,18 @@ export default {
               examine: true,
             },
           },
-
+          {
+            name: "商品管理",
+            module: "goods",
+            data: {
+              add: true,
+              del: true,
+              edit: true,
+              see: true,
+              batch: true,
+              examine: true,
+            },
+          },
           {
             name: "库存查询",
             module: "stock",
