@@ -782,6 +782,8 @@ class Buy extends Acl{
                     
                     Db::commit();
                 } catch (\Exception $e) {
+                    dump($e);
+                    dd($e->getMessage());
                     Db::rollback();
                     return json(['state'=>'error','info'=>'内部错误,操作已撤销!']);
                     exit;

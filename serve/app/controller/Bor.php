@@ -99,6 +99,7 @@ class Bor extends Acl{
             Db::startTrans();
             try {
                 //CLASS数据
+                $class['source'] = $class['source'] ?? 0;
                 if(empty($class['id'])){
                     //创建数据
                     $createInfo=Bors::create($class);
@@ -111,7 +112,6 @@ class Bor extends Acl{
                     Db::name('record')->insert(['type'=>'bor','source'=>$class['id'],'time'=>time(),'user'=>getUserID(),'info'=>'更新单据']);
                     pushLog('更新采购订单[ '.$class['number'].' ]');//日志
                 }
-                
                 //INFO数据
                 BorInfo::where([['pid','=',$class['id']]])->delete();
                 foreach ($input['info'] as $infoKey=>$infoVo) {

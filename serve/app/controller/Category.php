@@ -8,7 +8,7 @@ class Category extends Acl{
     //列表
     public function record(){
         $tree=new \org\Tree();
-        $category=$tree::hTree(Categorys::order(['sort'=>'asc'])->select());
+        $category=$tree::hTree(Categorys::order(['sort'=>'asc'])->select(),1);
         return json(['state'=>'success','info'=>$category]);
     }
     //新增|更新

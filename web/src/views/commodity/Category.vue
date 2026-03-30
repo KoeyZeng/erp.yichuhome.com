@@ -108,7 +108,7 @@
 			//详情菜单数据
 			treeData() {
 				return [{
-					id: 0,
+					id: 1,
 					name: "默认类别",
 					sub: this.tableData
 				}];
